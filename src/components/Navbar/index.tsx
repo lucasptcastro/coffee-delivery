@@ -5,7 +5,7 @@ import Cart from "../Cart";
 export default function Navbar() {
   return (
     <nav className="flex h-20 w-full items-center justify-between bg-white px-[370px] shadow-lg">
-      <Image alt="" src={"/Logo.svg"} width={84.95} height={40} />
+      <Image alt="" src={"/logo.svg"} width={84.95} height={40} />
 
       {/* Localização e carrinho */}
       <div className="flex items-center gap-3">
