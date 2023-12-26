@@ -35,6 +35,9 @@ const config: Config = {
         roboto: "var(--font-roboto)",
         baloo2: "var(--font-baloo2)",
       },
+      screens: {
+        "3xl": "1800px",
+      },
     },
   },
   plugins: [],
