@@ -112,69 +112,75 @@ export default function Home() {
 
   return (
     <Layout>
-      <section className="flex h-[544px] w-full items-center justify-evenly bg-[url('/background.svg')] px-64">
-        <div className="flex w-[588px] flex-col gap-16">
+      <section className="flex h-fit w-full flex-col-reverse items-center justify-center gap-10 bg-[url('/background.svg')] pt-40 xl:h-[544px] xl:flex-row xl:justify-evenly xl:gap-0 xl:px-64 xl:pt-60 2xl:pt-32">
+        <div className="flex flex-col gap-16 px-10 xl:w-[588px] xl:px-0">
           {/* Textos */}
           <div className="flex flex-col gap-4">
-            <h1 className="font-baloo2 text-5xl font-extrabold text-base-title">
+            <h1 className="text-justify font-baloo2 text-xl font-extrabold text-base-title xl:text-start xl:text-5xl">
               Encontre o café perfeito para qualquer hora do dia
             </h1>
-            <span className="font-roboto text-xl text-base-subtitle">
+            <span className="text-justify font-roboto text-xl text-base-subtitle xl:text-start">
               Com o Coffee Delivery você recebe seu café onde estiver, a <br />
               qualquer hora
             </span>
           </div>
 
           {/* Tags */}
-          <div className="grid grid-cols-2 grid-rows-2 gap-5">
+          <div className="itens-center flex flex-col justify-center gap-5 pb-10 xl:grid xl:grid-cols-2 xl:grid-rows-2 xl:pb-0">
             <div className="flex items-center gap-3">
-              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-yellow-dark p-2">
+              <div className="flex h-7 w-7 items-center justify-center rounded-full bg-yellow-dark p-2 xl:h-8 xl:w-8">
                 <ShoppingCart
                   size={16}
                   weight="fill"
                   className="text-background"
                 />
               </div>
-              <span className="font-roboto text-base-text">
+              <span className="font-roboto text-sm text-base-text xl:text-base">
                 Compra simples e segura
               </span>
             </div>
             <div className="flex items-center gap-3">
-              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-base-text p-2">
+              <div className="flex h-7 w-7 items-center justify-center rounded-full bg-base-text p-2 xl:h-8 xl:w-8">
                 <Package size={16} weight="fill" className="text-background" />
               </div>
-              <span className="font-roboto text-base-text">
+              <span className="font-roboto text-sm text-base-text xl:text-base">
                 Embalagem mantém o café intacto
               </span>
             </div>
             <div className="flex items-center gap-3">
-              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-yellow p-2">
+              <div className="flex h-7 w-7 items-center justify-center rounded-full bg-yellow p-2 xl:h-8 xl:w-8">
                 <Timer size={16} weight="fill" className="text-background" />
               </div>
-              <span className="font-roboto text-base-text">
+              <span className="font-roboto text-sm text-base-text xl:text-base">
                 Entrega rápida e rastreada
               </span>
             </div>
             <div className="flex items-center gap-3">
-              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-purple p-2">
+              <div className="flex h-7 w-7 items-center justify-center rounded-full bg-purple p-2 xl:h-8 xl:w-8">
                 <Coffee size={16} weight="fill" className="text-background" />
               </div>
-              <span className="font-roboto text-base-text">
+              <span className="font-roboto text-sm text-base-text xl:text-base">
                 O café chega fresquinho até você
               </span>
             </div>
           </div>
         </div>
 
-        <Image src={"/coffee.svg"} width={476} height={360} alt="" />
+        <Image
+          src={"/coffee.svg"}
+          width={476}
+          height={360}
+          alt=""
+          className="h-48 w-64 object-cover object-center xl:h-[360px] xl:w-[476px]"
+        />
       </section>
-      <section className="flex h-[1645px] w-full flex-col gap-9 px-[370px]">
-        <h1 className="font-baloo2 text-4xl font-extrabold text-base-subtitle">
+      <section className="mt-20 flex h-[1645px] w-full flex-col lg:px-60 3xl:px-[370px]">
+        <h1 className="text-center font-baloo2 text-2xl font-extrabold text-base-subtitle xl:text-start xl:text-4xl">
           Nossos cafés
         </h1>
 
         {/* Catalog */}
-        <div className="grid w-full grid-cols-4 grid-rows-4 gap-9">
+        <div className="grid w-full items-center justify-center space-y-10 px-10 py-10 md:grid-cols-2 xl:grid-cols-3 xl:gap-9 xl:space-y-0 2xl:grid-cols-4 2xl:grid-rows-4">
           {coffees.map((coffee) => (
             <Catalog
               coffee_image={coffee.coffee_image}

@@ -18,7 +18,7 @@ export default function Catalog({
   price,
 }: ICatalogo) {
   return (
-    <div className="h-[310px] w-64 rounded-md rounded-bl-[50px] rounded-tr-[50px] bg-base-card">
+    <div className="h-[310px] w-full rounded-md rounded-bl-[50px] rounded-tr-[50px] bg-base-card xl:w-64">
       <div className="flex h-full w-full flex-col items-center">
         <Image
           alt=""
