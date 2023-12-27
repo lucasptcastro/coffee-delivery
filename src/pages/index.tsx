@@ -10,7 +10,7 @@ export default function Home() {
       tags: ["Tradicional"],
       title: "Expresso Tradicional",
       description: "O tradicional café feito com água quente e grãos moídos",
-      price: 9.9,
+      price: 999.9,
     },
     {
       coffee_image: "/coffees/americano.svg",
@@ -112,21 +112,21 @@ export default function Home() {
 
   return (
     <Layout>
-      <section className="flex h-fit w-full flex-col-reverse items-center justify-center gap-10 bg-[url('../../public/background.svg')] pt-40 xl:h-[544px] xl:flex-row xl:justify-evenly xl:gap-0 xl:px-64 xl:pt-60 2xl:pt-32">
-        <div className="flex flex-col gap-16 px-10 xl:w-[588px] xl:px-0">
+      <section className="flex h-fit w-full flex-col-reverse items-center justify-center gap-10 bg-[url('../../public/background.svg')] pt-40 xl:h-[544px] xl:px-64 xl:pt-96 2xl:flex-row 2xl:justify-evenly 2xl:gap-0 2xl:pt-32 3xl:px-[370px]">
+        <div className="flex flex-col gap-16 px-10 xl:w-full">
           {/* Textos */}
           <div className="flex flex-col gap-4">
-            <h1 className="text-justify font-baloo2 text-xl font-extrabold text-base-title xl:text-start xl:text-5xl">
+            <h1 className="text-justify font-baloo2 text-xl font-extrabold text-base-title xl:text-center xl:text-5xl 2xl:text-start">
               Encontre o café perfeito para qualquer hora do dia
             </h1>
-            <span className="text-justify font-roboto text-xl text-base-subtitle xl:text-start">
+            <span className="text-justify font-roboto text-xl text-base-subtitle xl:text-center 2xl:text-start">
               Com o Coffee Delivery você recebe seu café onde estiver, a <br />
               qualquer hora
             </span>
           </div>
 
           {/* Tags */}
-          <div className="itens-center flex flex-col justify-center gap-5 pb-10 xl:grid xl:grid-cols-2 xl:grid-rows-2 xl:pb-0">
+          <div className="itens-center flex flex-col justify-center gap-5 pb-10 xl:grid xl:grid-cols-2 xl:grid-rows-2 xl:justify-items-center xl:pb-0 2xl:justify-items-start">
             <div className="flex items-center gap-3">
               <div className="flex h-7 w-7 items-center justify-center rounded-full bg-yellow-dark p-2 xl:h-8 xl:w-8">
                 <ShoppingCart
@@ -171,16 +171,18 @@ export default function Home() {
           width={476}
           height={360}
           alt=""
-          className="h-48 w-64 object-cover object-center xl:h-[360px] xl:w-[476px]"
+          className="h-48 w-64 object-cover object-center md:h-56 md:w-72 lg:h-72 lg:w-96 xl:h-[360px] xl:w-[476px]"
         />
       </section>
-      <section className="mt-20 flex h-[1645px] w-full flex-col lg:px-60 3xl:px-[370px]">
+
+      {/* Section */}
+      <section className="mt-20 flex h-fit w-full flex-col px-10 sm:px-40 lg:px-64 xl:mt-96 xl:px-64 2xl:mt-20 3xl:px-[370px]">
         <h1 className="text-center font-baloo2 text-2xl font-extrabold text-base-subtitle xl:text-start xl:text-4xl">
           Nossos cafés
         </h1>
 
         {/* Catalog */}
-        <div className="grid w-full items-center justify-center space-y-10 px-10 py-10 md:grid-cols-2 xl:grid-cols-3 xl:gap-9 xl:space-y-0 2xl:grid-cols-4 2xl:grid-rows-4">
+        <div className="flex w-full flex-col items-center justify-center space-y-10 py-10 md:grid md:grid-cols-2 md:gap-5 lg:justify-items-center xl:grid-cols-3 3xl:grid-cols-4">
           {coffees.map((coffee) => (
             <Catalog
               coffee_image={coffee.coffee_image}

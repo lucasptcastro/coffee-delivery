@@ -5,13 +5,13 @@ import Cart from "../Cart";
 
 export default function Navbar() {
   return (
-    <nav className="fixed z-50 flex h-20 w-full items-center justify-between bg-white px-8 shadow-lg sm:px-40 md:px-64 lg:px-80 xl:px-[370px]">
+    <nav className="xs:h-20 fixed z-50 flex h-14 w-full items-center justify-between bg-white px-10 shadow-lg sm:px-40 lg:px-64 xl:px-64 3xl:px-[370px]">
       <Image
         alt="Logotipo Coffee Delivery"
         src={Logo}
         width={84.95}
         height={40}
-        className="h-12 w-12 md:h-10 md:w-[84px]"
+        className="xs:h-10 xs:w-[84px] h-12 w-12"
       />
 
       {/* Localização e carrinho */}
@@ -22,8 +22,8 @@ export default function Navbar() {
             weight="fill"
             className="h-4 w-4 text-purple xl:h-[22px] xl:w-[22px]"
           />
-          <span className="font-roboto text-xs text-purple-dark xl:text-base">
-            Porto Alegre, RS
+          <span className="flex items-center gap-1 font-roboto text-xs text-purple-dark xl:text-base">
+            <span className="xs:block hidden">Porto Alegre,</span> RS
           </span>
         </div>
         <Cart />

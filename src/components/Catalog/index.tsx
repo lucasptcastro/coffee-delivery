@@ -18,7 +18,7 @@ export default function Catalog({
   price,
 }: ICatalogo) {
   return (
-    <div className="h-[310px] w-full rounded-md rounded-bl-[50px] rounded-tr-[50px] bg-base-card xl:w-64">
+    <div className="h-fit w-full rounded-md rounded-bl-[50px] rounded-tr-[50px] bg-base-card px-4 pb-4 xl:w-64">
       <div className="flex h-full w-full flex-col items-center">
         <Image
           alt=""
@@ -41,28 +41,28 @@ export default function Catalog({
           ))}
         </div>
 
-        <span className="mt-2 font-baloo2 text-xl font-bold text-base-subtitle">
+        <span className="xs:text-xl mt-2 text-center font-baloo2 text-lg font-bold text-base-subtitle">
           {title}
         </span>
-        <span className="w-[216px] text-center font-roboto text-sm text-base-label">
+        <span className="w-full text-center font-roboto text-sm text-base-label">
           {description}
         </span>
 
         {/* Cart */}
-        <div className="mt-6 flex w-full flex-row items-center justify-between px-6">
+        <div className="xs:px-6 mt-6 flex w-full flex-row items-center justify-between px-2">
           <div className="">
-            <span className="font-roboto text-sm text-base-text">
+            <span className="xs:text-sm font-roboto text-xs text-base-text xl:text-sm">
               R${" "}
-              <strong className="font-baloo2 text-2xl font-extrabold text-base-text">
+              <strong className="xs:text-xl font-baloo2 text-base font-extrabold text-base-text xl:text-2xl">
                 {price}
               </strong>
             </span>
           </div>
 
           {/* Input */}
-          <div className="flex flex-row items-center gap-3">
+          <div className="xs:gap-3 flex flex-row items-center gap-2">
             <Input type="number" />
-            <button className="flex h-8 w-10 items-center justify-center rounded-md bg-purple-dark transition-colors hover:bg-purple">
+            <button className="flex h-6 w-8 items-center justify-center rounded-md bg-purple-dark transition-colors hover:bg-purple xl:h-8 xl:w-10">
               <ShoppingCartSimple
                 size={18}
                 weight="fill"
