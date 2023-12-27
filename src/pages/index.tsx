@@ -112,7 +112,7 @@ export default function Home() {
 
   return (
     <Layout>
-      <section className="flex h-fit w-full flex-col-reverse items-center justify-center gap-10 bg-[url('/background.svg')] pt-40 xl:h-[544px] xl:flex-row xl:justify-evenly xl:gap-0 xl:px-64 xl:pt-60 2xl:pt-32">
+      <section className="flex h-fit w-full flex-col-reverse items-center justify-center gap-10 bg-[url('../../public/background.svg')] pt-40 xl:h-[544px] xl:flex-row xl:justify-evenly xl:gap-0 xl:px-64 xl:pt-60 2xl:pt-32">
         <div className="flex flex-col gap-16 px-10 xl:w-[588px] xl:px-0">
           {/* Textos */}
           <div className="flex flex-col gap-4">

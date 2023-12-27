@@ -1,4 +1,5 @@
 import { MapPin } from "@phosphor-icons/react";
+import Logo from "../../../public/logo.svg";
 import Image from "next/image";
 import Cart from "../Cart";
 
@@ -6,8 +7,8 @@ export default function Navbar() {
   return (
     <nav className="fixed z-50 flex h-20 w-full items-center justify-between bg-white px-8 shadow-lg sm:px-40 md:px-64 lg:px-80 xl:px-[370px]">
       <Image
-        alt=""
-        src={"/logo.svg"}
+        alt="Logotipo Coffee Delivery"
+        src={Logo}
         width={84.95}
         height={40}
         className="h-12 w-12 md:h-10 md:w-[84px]"
