@@ -1,5 +1,5 @@
 import { MapPin } from "@phosphor-icons/react";
-import Logo from "../../../public/logo.svg";
+import Logo from "../../../public/Logo.svg";
 import Image from "next/image";
 import Cart from "../Cart";
 
