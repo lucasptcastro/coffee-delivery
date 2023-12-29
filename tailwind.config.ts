@@ -36,7 +36,7 @@ const config: Config = {
         baloo2: "var(--font-baloo2)",
       },
       screens: {
-        xs: "375px",
+        xs: "376px",
         "3xl": "1800px",
       },
     },
