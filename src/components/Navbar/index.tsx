@@ -70,13 +70,13 @@ export default function Navbar() {
 
       {/* Localização e carrinho */}
       <div className="flex items-center gap-3">
-        <div className="flex h-7 w-fit items-center gap-1 rounded-md bg-purple-light p-2 shadow-sm xl:h-9">
+        <div className="flex h-7 w-fit items-center gap-1 rounded-md bg-purple-light p-2 shadow-sm md:h-9">
           <MapPin
             size={22}
             weight="fill"
-            className="h-4 w-4 text-purple xl:h-[22px] xl:w-[22px]"
+            className="h-4 w-4 text-purple md:h-[22px] md:w-[22px]"
           />
-          <span className="flex items-center gap-1 font-roboto text-xs text-purple-dark xl:text-base">
+          <span className="flex items-center gap-1 font-roboto text-xs text-purple-dark md:text-base">
             <span className="hidden xs:block">
               {location ? `${location?.state}, ` : ""}
             </span>

@@ -41,7 +41,7 @@ export default function Catalog({
           ))}
         </div>
 
-        <span className="xs:text-xl mt-2 text-center font-baloo2 text-lg font-bold text-base-subtitle">
+        <span className="mt-2 text-center font-baloo2 text-lg font-bold text-base-subtitle xs:text-xl">
           {title}
         </span>
         <span className="w-full text-center font-roboto text-sm text-base-label">
@@ -49,18 +49,18 @@ export default function Catalog({
         </span>
 
         {/* Cart */}
-        <div className="xs:px-6 mt-6 flex w-full flex-row items-center justify-between px-2">
+        <div className="mt-6 flex w-full flex-row flex-wrap items-center justify-between px-2 xs:px-6">
           <div className="">
-            <span className="xs:text-sm font-roboto text-xs text-base-text xl:text-sm">
+            <span className="font-roboto text-xs text-base-text xs:text-sm xl:text-sm">
               R${" "}
-              <strong className="xs:text-xl font-baloo2 text-base font-extrabold text-base-text xl:text-2xl">
+              <strong className="font-baloo2 text-base font-extrabold text-base-text xs:text-xl xl:text-2xl">
                 {price}
               </strong>
             </span>
           </div>
 
           {/* Input */}
-          <div className="xs:gap-3 flex flex-row items-center gap-2">
+          <div className="flex flex-row items-center gap-2 xs:gap-3">
             <Input type="number" />
             <button className="flex h-6 w-8 items-center justify-center rounded-md bg-purple-dark transition-colors hover:bg-purple xl:h-8 xl:w-10">
               <ShoppingCartSimple
