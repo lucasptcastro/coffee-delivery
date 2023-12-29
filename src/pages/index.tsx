@@ -13,7 +13,7 @@ export default function Home() {
       tags: ["Tradicional"],
       title: "Expresso Tradicional",
       description: "O tradicional café feito com água quente e grãos moídos",
-      price: 999.9,
+      price: 9.9,
     },
     {
       coffee_image: "/coffees/americano.svg",
@@ -127,7 +127,7 @@ export default function Home() {
 
   return (
     <Layout>
-      <section className="flex h-fit w-full flex-col-reverse items-center justify-center gap-10 bg-[url('../../public/Background.svg')] pt-40 xl:h-[544px] xl:px-64 xl:pt-96 2xl:flex-row 2xl:justify-evenly 2xl:gap-0 2xl:pt-32 3xl:px-[370px]">
+      <section className="flex h-fit w-full flex-col-reverse items-center justify-center gap-10 bg-[url('../../public/Background.svg')] bg-bottom pt-40 xl:h-[544px] xl:px-64 xl:pt-96 2xl:flex-row 2xl:justify-evenly 2xl:gap-0 2xl:pt-32 3xl:px-[370px]">
         <div className="flex flex-col gap-16 px-10 xl:w-full">
           {/* Textos */}
           <div className="flex flex-col gap-4">
