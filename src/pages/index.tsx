@@ -1,9 +1,12 @@
 import Image from "next/image";
 import Layout from "./layout";
-import { Coffee, Package, ShoppingCart, Timer } from "@phosphor-icons/react";
+import Loader from "@/components/Loader";
 import Catalog, { ICatalogo } from "@/components/Catalog";
+import { Coffee, Package, ShoppingCart, Timer } from "@phosphor-icons/react";
+import { useEffect, useState } from "react";
 
 export default function Home() {
+  const [loading, setLoading] = useState(true);
   const coffees: Array<ICatalogo> = [
     {
       coffee_image: "/coffees/expresso.svg",
@@ -109,6 +112,18 @@ export default function Home() {
       price: 9.9,
     },
   ];
+
+  useEffect(() => {
+    setTimeout(() => setLoading(false), 1500);
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="flex h-screen w-screen items-center justify-center">
+        <Loader type="logo" />
+      </div>
+    );
+  }
 
   return (
     <Layout>
