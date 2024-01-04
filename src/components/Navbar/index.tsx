@@ -70,7 +70,7 @@ export default function Navbar() {
 
       {/* Localização e carrinho */}
       <div className="flex items-center gap-3">
-        <div className="flex h-7 w-fit items-center gap-1 rounded-md bg-purple-light p-2 shadow-sm md:h-9">
+        <div className="flex h-7 w-fit items-center gap-1 rounded-md bg-purple-light p-2 shadow-sm xs:h-8 md:h-9">
           <MapPin
             size={22}
             weight="fill"
@@ -83,7 +83,7 @@ export default function Navbar() {
             {location ? location?.state_code : ""}
           </span>
         </div>
-        <Cart />
+        <Cart quantity={30} />
       </div>
     </nav>
   );
