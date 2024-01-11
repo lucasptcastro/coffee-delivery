@@ -3,6 +3,7 @@ import Image from "next/image";
 import Cart from "../Cart";
 import React, { useEffect, useState } from "react";
 import { MapPin } from "@phosphor-icons/react";
+import Link from "next/link";
 
 interface ILocation {
   state: string;
@@ -56,17 +57,19 @@ export default function Navbar() {
 
   useEffect(() => {
     GetCurrentPosition();
-  }, []);
+  });
 
   return (
     <nav className="fixed z-50 flex h-14 w-full items-center justify-between bg-white px-10 shadow-lg xs:h-20 sm:px-40 lg:px-64 xl:px-64 3xl:px-[370px]">
-      <Image
-        alt="Logotipo Coffee Delivery"
-        src={Logo}
-        width={84.95}
-        height={40}
-        className="h-12 w-12 xs:h-10 xs:w-[84px]"
-      />
+      <Link href="/">
+        <Image
+          alt="Logotipo Coffee Delivery"
+          src={Logo}
+          width={84.95}
+          height={40}
+          className="h-12 w-12 xs:h-10 xs:w-[84px]"
+        />
+      </Link>
 
       {/* Localização e carrinho */}
       <div className="flex items-center gap-3">
