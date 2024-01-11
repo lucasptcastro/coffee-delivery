@@ -18,12 +18,18 @@ export default function Input({ type, props, className }: IInput) {
     );
   } else if (type == "number") {
     return (
-      <div className="flex h-6 w-12 flex-row items-center justify-center gap-2 rounded-md bg-base-button p-1 xl:h-8 xl:w-[72px]">
-        <Minus weight="bold" className="text-xs text-purple xs:text-sm" />
+      <div className="flex h-6 w-12 flex-row items-center justify-center gap-2 rounded-md bg-base-button p-2 xl:h-fit xl:min-h-8 xl:w-[72px]">
+        <Minus
+          weight="bold"
+          className="text-xs text-purple hover:cursor-pointer hover:text-purple-dark xs:text-sm"
+        />
         <span className="font-roboto text-xs text-base-title xs:text-base">
           1
         </span>
-        <Plus weight="bold" className="text-xs text-purple xs:text-sm" />
+        <Plus
+          weight="bold"
+          className="text-xs text-purple hover:cursor-pointer hover:text-purple-dark xs:text-sm"
+        />
       </div>
     );
   }
