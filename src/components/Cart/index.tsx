@@ -1,4 +1,5 @@
 import { ShoppingCart } from "@phosphor-icons/react";
+import { Router, useRouter } from "next/router";
 import { ButtonHTMLAttributes } from "react";
 
 interface ICart {
@@ -8,10 +9,13 @@ interface ICart {
 }
 
 export default function Cart({ quantity = 0, props, className }: ICart) {
+  const router = useRouter();
+
   return (
     <button
       className={`relative flex h-7 w-7 items-center justify-center rounded-md bg-yellow-light p-2 shadow-sm xs:h-8 xs:w-8 md:h-9 md:w-9 ${className} transition-shadow hover:shadow-md`}
       {...props}
+      onClick={() => router.push("/carrinho")}
     >
       <ShoppingCart
         size={22}
