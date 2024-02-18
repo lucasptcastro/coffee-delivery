@@ -1,19 +1,18 @@
 import { Minus, Plus } from "@phosphor-icons/react";
 import { InputHTMLAttributes } from "react";
 
-interface IInput {
+interface IInput extends InputHTMLAttributes<HTMLInputElement> {
   type?: "text" | "number";
-  props?: InputHTMLAttributes<HTMLInputElement>;
   className?: string;
 }
 
-export default function Input({ type, props, className }: IInput) {
+export default function Input({ type, className, ...rest }: IInput) {
   if (type == "text") {
     return (
       <input
         className={`h-10 rounded border border-base-button bg-base-input p-3 font-roboto text-sm text-base-text ${className} outline-yellow-dark placeholder:text-base-label focus:text-base-text focus:placeholder:text-black/0`}
         type="text"
-        {...props}
+        {...rest}
       />
     );
   } else if (type == "number") {
