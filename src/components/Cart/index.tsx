@@ -1,15 +1,17 @@
+import { useCart } from "@/hooks/useCart";
 import { ShoppingCart } from "@phosphor-icons/react";
 import { Router, useRouter } from "next/router";
-import { ButtonHTMLAttributes } from "react";
+import { ButtonHTMLAttributes, useState } from "react";
 
 interface ICart {
-  quantity?: number;
   props?: ButtonHTMLAttributes<HTMLButtonElement>;
   className?: ButtonHTMLAttributes<HTMLButtonElement>;
 }
 
-export default function Cart({ quantity = 0, props, className }: ICart) {
+export default function Cart({ props, className }: ICart) {
   const router = useRouter();
+
+  const { cartProducts } = useCart();
 
   return (
     <button
@@ -23,9 +25,9 @@ export default function Cart({ quantity = 0, props, className }: ICart) {
         className="h-4 w-4 text-yellow-dark xs:h-5 xs:w-5 md:h-[22px] md:w-[22px]"
       />
 
-      {quantity > 0 && (
+      {cartProducts && (
         <div className="absolute -right-1 -top-1 flex h-3 w-3 items-center justify-center rounded-full bg-yellow-dark font-roboto text-[8px] font-bold text-white xs:h-4 xs:w-4 xs:text-[10px] md:-right-2 md:-top-2 md:h-5 md:w-5 md:text-sm">
-          {quantity}
+          {cartProducts.length}
         </div>
       )}
     </button>
