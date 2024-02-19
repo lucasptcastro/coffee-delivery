@@ -86,7 +86,7 @@ export default function Navbar() {
             {location ? location?.state_code : ""}
           </span>
         </div>
-        <Cart quantity={30} />
+        <Cart />
       </div>
     </nav>
   );
