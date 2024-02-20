@@ -1,12 +1,18 @@
+import { ICartProduct } from "@/dtos/cart";
+import { useCart } from "@/hooks/useCart";
 import { Minus, Plus } from "@phosphor-icons/react";
-import { InputHTMLAttributes } from "react";
+import { InputHTMLAttributes, useState } from "react";
 
 interface IInput extends InputHTMLAttributes<HTMLInputElement> {
   type?: "text" | "number";
   className?: string;
+
+  product?: ICartProduct;
 }
 
-export default function Input({ type, className, ...rest }: IInput) {
+export default function Input({ type, className, product, ...rest }: IInput) {
+  const { changeProductQuantity } = useCart();
+
   if (type == "text") {
     return (
       <input
@@ -21,13 +27,15 @@ export default function Input({ type, className, ...rest }: IInput) {
         <Minus
           weight="bold"
           className="text-xs text-purple hover:cursor-pointer hover:text-purple-dark xs:text-sm"
+          onClick={() => changeProductQuantity(product!, "minus")}
         />
         <span className="font-roboto text-xs text-base-title xs:text-base">
-          1
+          {product?.quantity}
         </span>
         <Plus
           weight="bold"
           className="text-xs text-purple hover:cursor-pointer hover:text-purple-dark xs:text-sm"
+          onClick={() => changeProductQuantity(product!, "plus")}
         />
       </div>
     );
