@@ -1,5 +1,3 @@
-import Section from "@/components/Section";
-import Layout from "../layout";
 import {
   Bank,
   CreditCard,
@@ -9,16 +7,18 @@ import {
   ShoppingCart,
   Trash,
 } from "@phosphor-icons/react";
+import { useCart } from "@/hooks/useCart";
+import { formatCurrency } from "@/utils/functions/format-currency";
+import { useRouter } from "next/router";
+import Section from "@/components/Section";
+import Layout from "../layout";
 import Input from "@/components/Input";
 import Select from "@/components/Select";
 import Image from "next/image";
 import Button from "@/components/Button";
-import { useCart } from "@/hooks/useCart";
-import { formatCurrency } from "@/utils/functions/format-currency";
-import { useRouter } from "next/router";
 
 export default function Checkout() {
-  const { cartProducts } = useCart();
+  const { cartProducts, removeProductFromCart } = useCart();
 
   const router = useRouter();
 
@@ -137,29 +137,30 @@ export default function Checkout() {
           <div className="mt-4 flex h-fit w-[448px] flex-col rounded-md rounded-bl-[50px] rounded-tr-[50px] bg-base-card p-10">
             {/* Itens do carrinho */}
             {cartProducts?.length > 0 ? (
-              cartProducts.map((coffee) => (
+              cartProducts.map((product) => (
                 <>
                   <div
-                    key={coffee.product}
+                    key={product.product}
                     className="flex flex-row items-center gap-5"
                   >
                     <Image
                       alt=""
                       width={64}
                       height={64}
-                      src={coffee.imagePath}
+                      src={product.imagePath}
                     />
 
                     <div className="flex flex-col ">
                       <span className="font-roboto text-base text-base-subtitle">
-                        {coffee.product}
+                        {product.product}
                       </span>
 
                       <div className="flex flex-row items-center gap-2">
-                        <Input type="number" />
+                        <Input type="number" product={product} />
                         <Button
                           label="Remover"
                           typeButton="secundary"
+                          onClick={() => removeProductFromCart(product)}
                           icon={<Trash className="text-base text-purple" />}
                         />
                       </div>
@@ -168,7 +169,7 @@ export default function Checkout() {
                     {/* Valor */}
                     <div className="ml-3 h-full text-start">
                       <span className="font-roboto text-base font-bold text-base-text">
-                        {formatCurrency(coffee.price)}
+                        {formatCurrency(product.price)}
                       </span>
                     </div>
                   </div>
@@ -219,3 +220,6 @@ export default function Checkout() {
     </Layout>
   );
 }
+
+// TODO: formatar valores
+// TODO: deixar responsivo
