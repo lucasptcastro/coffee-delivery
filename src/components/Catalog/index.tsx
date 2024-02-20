@@ -1,8 +1,8 @@
-import Image from "next/image";
-import Input from "../Input";
 import { ShoppingCartSimple, Trash } from "@phosphor-icons/react";
 import { useCart } from "@/hooks/useCart";
 import { formatCurrency } from "@/utils/functions/format-currency";
+import Image from "next/image";
+import Input from "../Input";
 
 export interface ICatalogo {
   id: string;
@@ -59,13 +59,25 @@ export default function Catalog({
 
   function onProductInCart() {
     if (cartProducts) {
-      const isProductInCart = cartProducts!.findIndex(
-        (cart) => cart.product === title,
-      );
+      const productIndex = cartProducts!.findIndex((cart) => cart.id === id);
 
-      return isProductInCart;
+      return productIndex;
     } else {
       return -1;
+    }
+  }
+
+  function onQuantityProductInCart() {
+    if (cartProducts) {
+      const productIndex = cartProducts!.findIndex((cart) => cart.id === id);
+
+      if (productIndex >= 0) {
+        return cartProducts[productIndex].quantity;
+      } else {
+        return 0;
+      }
+    } else {
+      return 0;
     }
   }
 
@@ -112,7 +124,16 @@ export default function Catalog({
 
           {/* Input */}
           <div className="flex flex-row items-center gap-2 xs:gap-3">
-            <Input type="number" />
+            <Input
+              type="number"
+              product={{
+                id: id,
+                imagePath: coffee_image,
+                price: price,
+                product: title,
+                quantity: onQuantityProductInCart(),
+              }}
+            />
 
             {onProductInCart() >= 0 ? (
               <button
