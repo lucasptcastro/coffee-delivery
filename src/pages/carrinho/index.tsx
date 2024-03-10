@@ -185,7 +185,7 @@ export default function Checkout() {
                         {product.product}
                       </span>
 
-                      <div className="flex flex-col items-center gap-4 pt-2 xs:flex-row xs:gap-2 xs:pt-0">
+                      <div className="flex flex-col items-center gap-4 pt-2 xs:gap-2 xs:pt-0 md:flex-row">
                         <Input type="number" product={product} />
                         <Button
                           label="Remover"
@@ -199,7 +199,7 @@ export default function Checkout() {
                     {/* Valor */}
                     <div className="ml-3 h-full text-start">
                       <span className="font-roboto text-base font-bold text-base-text">
-                        {formatCurrency(product.price)}
+                        R${formatCurrency(product.price)}
                       </span>
                     </div>
                   </div>
@@ -217,7 +217,7 @@ export default function Checkout() {
                   Total de itens
                 </span>
                 <span className="font-roboto text-base text-base-text">
-                  {formatCurrency(total!)}
+                  R${formatCurrency(total!)}
                 </span>
               </div>
               <div className="flex w-full flex-col items-center justify-between xs:flex-row">
@@ -225,7 +225,7 @@ export default function Checkout() {
                   Entrega
                 </span>
                 <span className="font-roboto text-base text-base-text">
-                  {formatCurrency(delivery)}
+                  R${formatCurrency(delivery)}
                 </span>
               </div>
               <div className="flex w-full flex-col items-center justify-between xs:flex-row">
@@ -233,7 +233,7 @@ export default function Checkout() {
                   Total
                 </span>
                 <span className="font-roboto text-xl font-bold text-base-subtitle">
-                  {formatCurrency(total! - delivery)}
+                  R${formatCurrency(total! + delivery)}
                 </span>
               </div>
             </div>
