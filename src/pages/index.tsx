@@ -106,7 +106,7 @@ export default function Home() {
         </h1>
 
         {/* Catalog */}
-        <div className="flex w-full flex-col items-center justify-center space-y-10 py-10 md:grid md:grid-cols-2 md:gap-5 lg:justify-items-center xl:grid-cols-3 3xl:grid-cols-4">
+        <div className="flex w-full flex-col items-end justify-center space-y-10 py-10 md:grid md:grid-cols-2 md:gap-5 lg:justify-items-center xl:grid-cols-3 3xl:grid-cols-4">
           {COFFEES.map((coffee, index) => (
             <Catalog
               id={coffee.id}

@@ -114,7 +114,7 @@ export default function Catalog({
         </span>
 
         {/* Cart */}
-        <div className="mt-6 flex w-full flex-row flex-wrap items-center justify-between xs:px-6 md:px-2 lg:px-6">
+        <div className="mt-6 flex w-full flex-row flex-wrap items-center justify-between xs:px-6 md:px-2 lg:px-5">
           <span className="font-roboto text-xs text-base-text xs:text-sm xl:text-sm">
             R${" "}
             <strong className="font-baloo2 text-base font-extrabold text-base-text xs:text-xl xl:text-2xl">
@@ -123,7 +123,7 @@ export default function Catalog({
           </span>
 
           {/* Input */}
-          <div className="flex flex-row items-center gap-2 xs:gap-3">
+          <div className="flex flex-row items-center gap-2 xs:gap-3 md:gap-2 lg:gap-3">
             <Input
               type="number"
               product={{
