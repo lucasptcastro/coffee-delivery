@@ -23,10 +23,10 @@ export default function Input({ type, className, product, ...rest }: IInput) {
     );
   } else if (type == "number") {
     return (
-      <div className="flex h-6 w-12 flex-row items-center justify-center gap-2 rounded-md bg-base-button p-2 xl:h-fit xl:min-h-8 xl:w-[72px]">
+      <div className=" flex h-6 w-16 flex-row items-center justify-center gap-2 rounded-md bg-base-button p-2 xl:h-fit xl:min-h-8 xl:w-[72px]">
         <Minus
           weight="bold"
-          className="text-xs text-purple hover:cursor-pointer hover:text-purple-dark xs:text-sm"
+          className="text-xl text-purple hover:cursor-pointer hover:text-purple-dark "
           onClick={() => changeProductQuantity(product!, "minus")}
         />
         <span className="font-roboto text-xs text-base-title xs:text-base">
@@ -34,7 +34,7 @@ export default function Input({ type, className, product, ...rest }: IInput) {
         </span>
         <Plus
           weight="bold"
-          className="text-xs text-purple hover:cursor-pointer hover:text-purple-dark xs:text-sm"
+          className="text-xl text-purple hover:cursor-pointer hover:text-purple-dark "
           onClick={() => changeProductQuantity(product!, "plus")}
         />
       </div>

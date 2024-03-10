@@ -94,9 +94,9 @@ export default function Catalog({
 
         {/* Tags */}
         <div className="relative -top-2 flex flex-row gap-1">
-          {tags.map((tag) => (
+          {tags.map((tag, index) => (
             <div
-              key={tag}
+              key={index}
               className="flex h-6 w-fit items-center justify-center rounded-[100px] bg-yellow-light p-2"
             >
               <span className=" font-roboto text-xs font-bold uppercase text-yellow-dark">
@@ -114,7 +114,7 @@ export default function Catalog({
         </span>
 
         {/* Cart */}
-        <div className="mt-6 flex w-full flex-row flex-wrap items-center justify-between xs:px-6">
+        <div className="mt-6 flex w-full flex-row flex-wrap items-center justify-between xs:px-6 md:px-2 lg:px-6">
           <span className="font-roboto text-xs text-base-text xs:text-sm xl:text-sm">
             R${" "}
             <strong className="font-baloo2 text-base font-extrabold text-base-text xs:text-xl xl:text-2xl">

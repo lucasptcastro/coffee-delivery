@@ -8,11 +8,11 @@ interface ISelect {
 
 export default function Select({ className, options }: ISelect) {
   return (
-    <ul className={`flex flex-row gap-3 ${className}`}>
-      {options.map((option) => (
+    <ul className={`flex flex-col gap-3 xl:flex-row ${className}`}>
+      {options.map((option, key) => (
         <li
-          key={option.label}
-          className="flex min-w-44 flex-row items-center gap-3 rounded-md border border-transparent bg-base-button p-4 transition-all  hover:cursor-pointer hover:bg-base-hover focus:border-purple focus:bg-purple-light"
+          key={key}
+          className="flex flex-row items-center gap-3 rounded-md border border-transparent bg-base-button p-4 transition-all hover:cursor-pointer  hover:bg-base-hover focus:border-purple focus:bg-purple-light xl:min-w-44"
         >
           {option.icon}
           <span className="font-roboto text-xs uppercase leading-[160%] text-base-text">
