@@ -61,20 +61,30 @@ export default function Checkout() {
     );
   }
 
+  const cartProductsValue = cartProducts.map(
+    (product) => product.quantity! * product.price,
+  );
+
+  const total = cartProductsValue.reduce(
+    (totalValue, currentValue) => (totalValue = totalValue + currentValue),
+    0,
+  );
+  const delivery = Math.floor(Math.random() * (10 - 5 + 1)) + 5;
+
   return (
     <Layout>
-      <Section className="relative flex flex-col items-center justify-center gap-5 pt-40 xl:h-[544px] xl:px-64 xl:pt-96 3xl:flex-row 3xl:items-start 3xl:justify-between 3xl:px-[370px] 3xl:pt-32">
-        <div className="flex flex-col">
+      <Section className="min-h-screen w-full flex-1 flex-col items-center justify-center gap-5 border border-red-500 px-10 pb-20 pt-40 sm:px-40 lg:px-64 2xl:flex 2xl:flex-row 2xl:items-start 2xl:justify-between 3xl:px-[370px] 3xl:pt-32">
+        <div className="flex w-full flex-col">
           <h1 className="font-baloo2 text-lg font-bold text-base-subtitle">
             Complete seu pedido
           </h1>
 
           {/* Card de endereço */}
-          <div className="mt-4 flex h-[372px] w-[640px] flex-col gap-8 rounded-md bg-base-card p-10">
+          <div className="mt-4 flex w-full flex-col gap-8 rounded-md bg-base-card p-10 xl:h-[372px] xl:w-[640px]">
             {/* Subtitulo */}
-            <div className="flex flex-row items-start gap-2">
-              <MapPinLine size={22} className="text-yellow-dark" />
-              <span className="font-roboto text-base text-base-subtitle">
+            <div className="flex w-full flex-col items-center gap-2 md:flex-row md:items-start">
+              <MapPinLine className="text-xl text-yellow-dark md:text-2xl" />
+              <span className="text-center font-roboto text-sm text-base-subtitle md:text-start md:text-base">
                 Endereço de Entrega <br />{" "}
                 <span className="font-roboto text-sm text-base-text">
                   Informe o endereço onde deseja receber seu pedido
@@ -82,18 +92,26 @@ export default function Checkout() {
               </span>
             </div>
 
-            <div className="flex w-[560px] flex-col gap-4">
+            <div className="flex w-full flex-col gap-4 xl:w-[560px]">
               {/* Row 1 */}
               <div>
-                <Input className="w-52" type="text" placeholder="CEP" />
+                <Input
+                  className="w-full xl:w-52"
+                  type="text"
+                  placeholder="CEP"
+                />
               </div>
               {/* Row 2 */}
               <div>
                 <Input className="w-full" type="text" placeholder="Rua" />
               </div>
               {/* Row 3 */}
-              <div className="flex gap-3">
-                <Input className="w-48" type="text" placeholder="Número" />
+              <div className="flex flex-col gap-3 xl:flex-row">
+                <Input
+                  className="w-full xl:w-48"
+                  type="text"
+                  placeholder="Número"
+                />
                 <Input
                   className="w-full"
                   type="text"
@@ -101,20 +119,32 @@ export default function Checkout() {
                 />
               </div>
               {/* Row 4 */}
-              <div className="flex gap-3">
-                <Input className="w-48" type="text" placeholder="Bairro" />
-                <Input className="w-72" type="text" placeholder="Cidade" />
-                <Input className="w-14" type="text" placeholder="UF" />
+              <div className="flex flex-col gap-3 xl:flex-row">
+                <Input
+                  className="w-full xl:w-48"
+                  type="text"
+                  placeholder="Bairro"
+                />
+                <Input
+                  className="w-full xl:w-72"
+                  type="text"
+                  placeholder="Cidade"
+                />
+                <Input
+                  className="w-full xl:w-14"
+                  type="text"
+                  placeholder="UF"
+                />
               </div>
             </div>
           </div>
 
           {/* Card de pagamento */}
-          <div className="mt-3 flex h-[372px] w-[640px] flex-col gap-8 rounded-md bg-base-card p-10">
+          <div className="mt-3 flex w-full flex-col gap-8 rounded-md bg-base-card p-10 xl:h-[372px] xl:w-[640px]">
             {/* Subtitulo */}
-            <div className="flex flex-row items-start gap-2">
+            <div className="flex flex-col items-center gap-2 md:flex-row md:items-start">
               <CurrencyDollar size={22} className="text-purple" />
-              <span className="font-roboto text-base text-base-subtitle">
+              <span className="text-center font-roboto text-base text-base-subtitle md:text-start">
                 Pagamento <br />{" "}
                 <span className="font-roboto text-sm text-base-text">
                   O pagamento é feito na entrega. Escolha a forma que deseja
@@ -128,20 +158,20 @@ export default function Checkout() {
         </div>
 
         {/* Cafés selecionados */}
-        <div className="flex flex-col">
+        <div className="flex h-full flex-col pt-4 2xl:pt-0">
           <h1 className="font-baloo2 text-lg font-bold text-base-subtitle">
             Cafés selecionados
           </h1>
 
           {/* Card do carrinho */}
-          <div className="mt-4 flex h-fit w-[448px] flex-col rounded-md rounded-bl-[50px] rounded-tr-[50px] bg-base-card p-10">
+          <div className="mt-4 flex h-fit flex-col rounded-md rounded-bl-[50px] rounded-tr-[50px] bg-base-card p-10 xl:w-[448px]">
             {/* Itens do carrinho */}
             {cartProducts?.length > 0 ? (
-              cartProducts.map((product) => (
+              cartProducts.map((product, index) => (
                 <>
                   <div
-                    key={product.product}
-                    className="flex flex-row items-center gap-5"
+                    key={index}
+                    className="flex flex-col items-center justify-center gap-5 md:flex-row"
                   >
                     <Image
                       alt=""
@@ -150,12 +180,12 @@ export default function Checkout() {
                       src={product.imagePath}
                     />
 
-                    <div className="flex flex-col ">
-                      <span className="font-roboto text-base text-base-subtitle">
+                    <div className="flex flex-col">
+                      <span className="text-center font-roboto text-base text-base-subtitle xs:text-start">
                         {product.product}
                       </span>
 
-                      <div className="flex flex-row items-center gap-2">
+                      <div className="flex flex-col items-center gap-4 pt-2 xs:flex-row xs:gap-2 xs:pt-0">
                         <Input type="number" product={product} />
                         <Button
                           label="Remover"
@@ -182,28 +212,28 @@ export default function Checkout() {
 
             {/* Resumo */}
             <div className="flex w-full flex-col gap-3">
-              <div className="flex w-full flex-row items-center justify-between">
+              <div className="flex w-full flex-col items-center justify-between xs:flex-row">
                 <span className="font-roboto text-sm text-base-text">
                   Total de itens
                 </span>
                 <span className="font-roboto text-base text-base-text">
-                  R$ 29,70
+                  {formatCurrency(total!)}
                 </span>
               </div>
-              <div className="flex w-full flex-row items-center justify-between">
+              <div className="flex w-full flex-col items-center justify-between xs:flex-row">
                 <span className="font-roboto text-sm text-base-text">
                   Entrega
                 </span>
                 <span className="font-roboto text-base text-base-text">
-                  R$ 3,50
+                  {formatCurrency(delivery)}
                 </span>
               </div>
-              <div className="flex w-full flex-row items-center justify-between">
+              <div className="flex w-full flex-col items-center justify-between xs:flex-row">
                 <span className="font-roboto text-xl font-bold text-base-subtitle">
                   Total
                 </span>
                 <span className="font-roboto text-xl font-bold text-base-subtitle">
-                  R$ 33,20
+                  {formatCurrency(total! - delivery)}
                 </span>
               </div>
             </div>
